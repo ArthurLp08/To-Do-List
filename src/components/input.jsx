@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect} from "react"
 import addIcon from "../assets/addIcon.svg"
 import deleteIcon from "../assets/deleteIcon.svg"
 
@@ -19,9 +19,16 @@ function Input(){
         }
     }
 
+    const handleDeleteTodo = (index) => {
+        const newTodos = todos.filter((_, i) => i !== index);
+        setTodos(newTodos);
+    }
+
     useEffect(() => {
-        if (localStorage.getItem("ToDos") == null) return;
-        setTodos(JSON.parse(localStorage.getItem("ToDos")));
+        const storedTodos = JSON.parse(localStorage.getItem("ToDos"));
+        if (storedTodos){
+            setTodos(storedTodos);
+        }
     }, []);
 
     useEffect(() => {
@@ -36,8 +43,9 @@ function Input(){
         </form>
         <ul className="flex flex-col w-[50%] p-3">
         {todos.map((todo, index) => (
-          <li className=" relative bg-[#BDE0FE] mt-2 w-full h-[57px] indent-4 rounded-3xl flex items-center" key={index}> {todo} <button className="bg-[#CDB4DB] p-3 rounded-full absolute right-3 top-[50%] translate-y-[-50%]" type="submit"><img src={ deleteIcon } alt="" /></button> </li>
-          
+            <li className=" relative bg-[#BDE0FE] mt-2 w-full h-[57px] indent-4 rounded-3xl flex items-center" key={index}> {todo}
+            <button className="bg-[#CDB4DB] p-3 rounded-full absolute right-3 top-[50%] translate-y-[-50%]" onClick={() => handleDeleteTodo(index)}><img src={ deleteIcon } alt="" /></button>
+            </li>
         ))}
         </ul>
         </>
