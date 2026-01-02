@@ -20,4 +20,4 @@ To run this project locally:
 or use the [Live Demo](https://to-do-list-ashy-ten-88.vercel.app)
 
 # 💻Screenshot
-![Screenshot From the app](https://media.discordapp.net/attachments/1247685148296609842/1451869831832797204/Screenshot.png?ex=6947bea6&is=69466d26&hm=57c7fd2a709bf07a3c6064dbf8611e7fbcde20bf9189763a62c3bcfed50d5fe2&=&format=webp&quality=lossless&width=738&height=477)
+![Screenshot From the app](./Screenshot.png)
